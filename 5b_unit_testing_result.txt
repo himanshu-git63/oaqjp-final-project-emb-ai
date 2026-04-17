@@ -1,0 +1,7 @@
+/home/project/final_proj
+ect/oaqjp-final-project-emb-ai$ python3 test_emotion_detection.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.674s
+
+OK
