@@ -1,0 +1,25 @@
+from flask import Flask, request, render_template
+from EmotionDetection.emotion_detection import emotion_detector
+
+app = Flask(__name__)
+
+@app.route('/')
+def render_index():
+    return render_template('index.html')
+
+@app.route('/emotionDetector')
+def emo_detect():
+    #text = request.form['textToAnalyze']
+    input = request.args.get('textToAnalyze')
+    resp = emotion_detector(input)
+    #print(emotion_resp)
+    text1 = "For the given statement, \
+    the system response is "
+    text2 = ', '.join(f"'{k}': {v}" for k, v in resp.items())
+    text3 = f". The dominant emotion is {resp['dominant_emotion']}."
+    output = text1 + text2 + text3
+    return output
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
