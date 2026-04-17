@@ -11,7 +11,7 @@ def emotion_detector(text_to_analyse): # Define a function named sentiment_analy
         dict = formatted_response['emotionPredictions'][0]['emotion']
         max_emotion = max(dict, key = dict.get)  
         dict['dominant_emotion'] = max_emotion
-    elif response.status_code == 400:
+    elif response.status_code == 400::
         dict = {"anger": None,
                 "disgust": None, 
                 "fear": None, 
